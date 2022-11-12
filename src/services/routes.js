@@ -23,8 +23,8 @@ const postSignUp = async (newUser) => {
     return axios.post(`${config.API_URL}/api/signup`, newUser)
 }
 
-const postProducts = async (values, fd, config) => {
-    return axios.post(`${config.API_URL}/api/products/${values.name}/${values.desc}/${values.price}/${values.stock}/${values.code}`, fd, config)
+const postProducts = async (values, fd, AXIOSconfig) => {
+    return await axios.post(`${config.API_URL}/api/products/${values.name}/${values.desc}/${values.price}/${values.stock}/${values.code}`, fd, AXIOSconfig)
 }
 
 const postLogin = async (values) => {

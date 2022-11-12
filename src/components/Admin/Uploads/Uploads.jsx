@@ -22,10 +22,10 @@ export const Uploads = () => {
     e.preventDefault()
     const fd = new FormData();
     fd.append('prodImg', file);
-    let config = {
+    let AXIOSconfig = {
       headers:{'Content-Type':'multipart/form-data'}
     }
-    postProducts(values, fd, config)
+    postProducts(values, fd, AXIOSconfig)
       .then(function(response) {
       if(response.data.code == '200') {
         
