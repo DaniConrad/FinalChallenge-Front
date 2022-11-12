@@ -21,6 +21,7 @@ const ItemDetailContainer = () => {
             .finally(setLoading(false))
         return () => setReloadData(true)
     }, [reloadData])
+
     console.log(productDetail);
   return (
     <div className="d-flex flex-column align-items-center">

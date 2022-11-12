@@ -12,7 +12,7 @@ const ItemListContainer = () => {
 
     const {categoryId} = useParams()
     
-    useEffect( () => { 
+    useEffect(() => { 
         setLoading(true)
         getProducts()
             .then(res => setItems(res.data))

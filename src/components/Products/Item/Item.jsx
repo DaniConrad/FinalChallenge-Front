@@ -1,13 +1,15 @@
 import React from "react";
 import { Card, Button, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import { getImgs } from "../../../services/routes";
+
 
 const Item = ({product}) =>{
     
 
     return(
             <Card style={{ width: '18rem' }} bg="dark" className="d-flex align-items-center m-3">
-                <Card.Img style={{ width: '55%', height:'55%' }} variant="top" alt={product.name} src= {`http://127.0.0.1:8080` + product.img} className="mt-4"/>
+                <Card.Img style={{ width: '55%', height:'55%' }} variant="top" alt={product.name} src= {`${getImgs()}` + product.img} className="mt-4"/>
                 <Card.Body>
                     <Card.Title className="text-light text-center">
                         {product.name}

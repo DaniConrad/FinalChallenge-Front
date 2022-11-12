@@ -5,7 +5,7 @@ import { BsFillTrashFill, } from 'react-icons/bs'
 import '../../App.css'
 import axios from 'axios';
 import { UserContext } from '../../context/UserContext';
-import { getCart, removeItem } from '../../services/routes';
+import { getCart, getImgs, removeItem } from '../../services/routes';
 
 
 export const Cart = () => {
@@ -41,7 +41,9 @@ export const Cart = () => {
                 <div className='d-flex justify-content-center 'key={item._id}>
                     <div className={`personal-bg-cart d-flex justify-content-center px-2 my-2 flex-wrap `}>
                       <div className='d-flex justify-content-center'>
-                        <img src={item.img} alt={item.name} className="cart-img"/>
+                        <img src={getImgs() + item.img} alt={item.name} className="cart-img"/>
+                        <h2>{item.name}</h2>
+                        <h3>{item.price}</h3>
                       </div>
                           <button onClick={()=>deleteItem(item._id)} className='me-2 btn'>
                                 <BsFillTrashFill 

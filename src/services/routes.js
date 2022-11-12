@@ -15,39 +15,47 @@ const getCart = async (userID) => {
     return axios.get(`${config.API_URL}/api/cart/${userID}/products`)
 }
 
-const removeItem = (userID, itemID) => {
+const removeItem = async (userID, itemID) => {
    return axios.delete(`${config.API_URL}/api/cart/${userID}/products/${itemID}`)
 }
 
-const postSignUp = (newUser) => {
+const postSignUp = async (newUser) => {
     return axios.post(`${config.API_URL}/api/signup`, newUser)
 }
 
-const postProducts = (values, fd, config) => {
+const postProducts = async (values, fd, config) => {
     return axios.post(`${config.API_URL}/api/products/${values.name}/${values.desc}/${values.price}/${values.stock}/${values.code}`, fd, config)
 }
 
-const postLogin = (values) => {
+const postLogin = async (values) => {
     return  axios.post(`${config.API_URL}/api/login`, {
         username: values.username,
         password: values.password
     })
 }
  
-const getProfile = (token) => {
+const getProfile = async (token) => {
     return axios.get(`${config.API_URL}/api/profile?secret_token=${token}`)
 }
 
-const postCheckout = (userID) => {
+const postCheckout = async (userID) => {
     return axios.post(`${config.API_URL}/api/cart/${userID}/checkout`, {})
 }
 
-const getProducts = () => {
-    return axios.get(`${config.API_URL}/api/products`)
+const getProducts = async () => {
+    return await axios.get(`${config.API_URL}/api/products`)
 }
 
-const getProductDetail = (itemID) => {
-    return axios.get(`${config.API_URL}/api/products/${itemID}`)
+const getProductDetail = async (itemID) => {
+    return await axios.get(`${config.API_URL}/api/products/${itemID}`)
+}
+
+const getImgs = () => {
+    return config.API_URL
+}
+
+const postCart = async (userID, itemToAdd) => {
+    return await axios.post(`${config.API_URL}/api/cart/${userID}/products`, itemToAdd )
 }
 
 export {
@@ -61,5 +69,7 @@ export {
     postLogin,
     postCheckout,
     getProducts,
-    getProductDetail
+    getProductDetail,
+    getImgs,
+    postCart
 }
