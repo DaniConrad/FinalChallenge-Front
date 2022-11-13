@@ -23,8 +23,8 @@ const postSignUp = async (newUser) => {
     return await axios.post(`${config.API_URL}/api/signup`, newUser)
 }
 
-const postProducts = async (values, fd, AXIOSconfig) => {
-    return await axios.post(`${config.API_URL}/api/products/${values.name}/${values.desc}/${values.price}/${values.stock}/${values.code}`, fd, AXIOSconfig)
+const postProducts = async (userID, values, fd, AXIOSconfig) => {
+    return await axios.post(`${config.API_URL}/api/products/${userID}/${values.name}/${values.desc}/${values.price}/${values.stock}/${values.code}`, fd, AXIOSconfig)
 }
 
 const postLogin = async (values) => {
@@ -58,6 +58,10 @@ const postCart = async (userID, itemToAdd) => {
     return await axios.post(`${config.API_URL}/api/cart/${userID}/products`, itemToAdd )
 }
 
+const deleteProduct = async (userID, prodID) => {
+    return await axios.delete(`${config.API_URL}/api/products/${userID}/${prodID}`,  )
+}
+
 export {
     getOrdersByUserID,
     logout,
@@ -71,5 +75,6 @@ export {
     getProducts,
     getProductDetail,
     getImgs,
-    postCart
+    postCart,
+    deleteProduct
 }

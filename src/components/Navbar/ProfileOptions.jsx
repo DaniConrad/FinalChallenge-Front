@@ -8,7 +8,7 @@ import { logout } from '../../services/routes';
 
 const ProfileOptions = () => {
 
-    const { setToken } = useContext(UserContext)
+    const { setToken, user } = useContext(UserContext)
 
     const disconnectUser = () => {
         logout()
@@ -30,6 +30,16 @@ const ProfileOptions = () => {
                       <NavDropdown.Item href="#action/3.3">
                       <Nav.Link as={Link} to="/chat" className='fs-4 underline text-light'>Chat</Nav.Link>
                       </NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.3">
+                        <Nav.Link as={Link} to="/cart" className='fs-4 underline text-light'>Carrito</Nav.Link>
+                      </NavDropdown.Item>
+                      {
+                        (user.role === 'admin') ? 
+                          <NavDropdown.Item href="#action/3.3">
+                            <Nav.Link as={Link} to="/admin" className='fs-4 underline text-light'>Administrador</Nav.Link>
+                          </NavDropdown.Item> 
+                         : ''
+                      }
                       <NavDropdown.Divider />
                       <NavDropdown.Item href="#action/3.4">
                         <Nav.Link onClick={disconnectUser} className='fs-4 underline text-light'>Logout</Nav.Link>

@@ -1,13 +1,18 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
 import { Container, Button } from 'react-bootstrap';
-import axios from 'axios'
 import { useState } from 'react';
 import { postProducts } from '../../../services/routes';
+import { useContext } from 'react';
+import { UserContext } from '../../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+
 export const Uploads = () => {
 
+  const navigate = useNavigate()
   const [values, setValues] = useState({})
   const [file, setFile] = useState() 
+  const { user } = useContext(UserContext)
 
   const handleInputChange = (e) =>{
     setValues({...values, [e.target.name]: e.target.value})
@@ -25,14 +30,9 @@ export const Uploads = () => {
     let AXIOSconfig = {
       headers:{'Content-Type':'multipart/form-data'}
     }
-    postProducts(values, fd, AXIOSconfig)
-      .then(function(response) {
-      if(response.data.code == '200') {
-        
-      }
-    }).catch(function(error) {
-      console.log(error);
-    })
+    postProducts(user._id, values, fd, AXIOSconfig)
+      .then(res => { if (res.data === true) navigate('/products') })
+      .catch(err => console.log(err))
   }
 
       

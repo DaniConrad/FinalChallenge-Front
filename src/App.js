@@ -12,6 +12,9 @@ import SignUp from './components/Auth/SignUp';
 import Profile from './components/Auth/Profile';
 import OrdersContainer from './components/Orders/OrdersContainer/OrdersContainer';
 import Chat from './components/Chat/Chat';
+import Admin from './components/Admin/Admin';
+import Modify from './components/Admin/Modify/AdminListContainerProducts';
+import { ProtectedRoute } from './components/Admin/ProtectedRoutes/protectedRoute';
 
 function App() {
 
@@ -21,19 +24,42 @@ function App() {
         <div className='App'>
           <NavbarD />
           <Routes>
-          <Route path='/' element={<ItemListContainer />}  />
-          <Route path='/products' element={<ItemListContainer />}/>
-          <Route path='/category/:categoryId' element={<ItemListContainer />} />
-          <Route path='/detail/:itemId' element={ <ItemDetailContainer /> } />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/checkout' element={<Checkout />} />
-          <Route path='/admin' element={<Uploads />} />
-          <Route path='/signUp' element={<SignUp />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/orders' element={<OrdersContainer />} />
-          <Route path='/chat' element={<Chat />} />
-          <Route path='/auth' element={<Login />} />
-          
+            <Route path='/' element={<ItemListContainer />}  />
+            <Route path='/products' element={<ItemListContainer />}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer />} />
+            <Route path='/detail/:itemId' element={ <ItemDetailContainer /> } />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/signUp' element={<SignUp />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/orders' element={<OrdersContainer />} />
+            <Route path='/chat' element={<Chat />} />
+            <Route path='/auth' element={<Login />} />
+            <Route path='/admin' 
+                  element={
+                    <ProtectedRoute>
+                      <Admin />
+                    </ProtectedRoute>
+                      
+                  }
+            />
+            <Route path='/adminproducts' 
+                  element={
+                    <ProtectedRoute>
+                      <Modify />
+                    </ProtectedRoute>
+                      
+                  }
+            />
+            <Route path='/uploads' 
+                  element={
+                    <ProtectedRoute>
+                      <Uploads />
+                    </ProtectedRoute>
+                      
+                  }
+            />
+
           </Routes>
         </div>
     </BrowserRouter>

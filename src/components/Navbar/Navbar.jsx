@@ -22,7 +22,6 @@ const NavbarD = () => {
                     <Nav.Link as={Link} to="/" className='fs-4 underline text-light'>Inicio</Nav.Link>
                     <Nav.Link as={Link} to="/auth" className='fs-4 underline text-light'>Login</Nav.Link>
                     <Nav.Link as={Link} to="/products" className='fs-4 underline text-light'>Productos</Nav.Link>
-                    <Nav.Link as={Link} to="/cart" className='fs-4 underline text-light'>Carrito</Nav.Link>
                     { user ? <ProfileOptions /> : '' }
                   </Nav>
                 </Navbar.Collapse>
