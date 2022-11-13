@@ -20,7 +20,7 @@ const removeItem = async (userID, itemID) => {
 }
 
 const postSignUp = async (newUser) => {
-    return axios.post(`${config.API_URL}/api/signup`, newUser)
+    return await axios.post(`${config.API_URL}/api/signup`, newUser)
 }
 
 const postProducts = async (values, fd, AXIOSconfig) => {

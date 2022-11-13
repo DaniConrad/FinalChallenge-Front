@@ -21,21 +21,19 @@ export const useForm = (initialForm) => {
 
     const handleValidate = (e) =>{
         e.preventDefault()
-        
-        
+
         postLogin(values)
           .then(function (response) {
             if(response.data.body) {
               setToken(response.data.token)
               setUser(response.data.body)
-              navigate(-1)
+              navigate('/products')
             }else{
               console.log(response.data);
             }
           })
           .catch(function (error) {
             if (error.response.data.user == false) return setError(true)
-            
           });
 
       }

@@ -7,8 +7,6 @@ import Error from '../error/LoginError';
 
  const Login = () => {
 
-    const navigate = useNavigate()
-
     const initialForm = {
         email: '',
         password: '',

@@ -4,9 +4,13 @@ import { Form, Button, Container } from 'react-bootstrap'
 import SignUpError from '../error/SignUpError'
 import { useState } from 'react'
 import { postSignUp } from '../../services/routes'
+import { viewSuccessAlert } from '../Alerts/Success'
+import { useNavigate } from 'react-router-dom'
 
 
 const SignUp = () => {
+
+    const navigate = useNavigate()
 
     const initialForm = {
         email: '',
@@ -27,11 +31,10 @@ const SignUp = () => {
           }
 
         postSignUp(newUser)
-          .then(function (response) {
-            if(response.data.username) {
-                console.log('success')
-            }else{
-              console.log(response.data.message);
+          .then(response => {
+            if(response.data.userID) {
+                viewSuccessAlert()
+                navigate('/auth')
             }
           })
           .catch(function (error) {
