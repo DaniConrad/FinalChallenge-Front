@@ -1,11 +1,10 @@
 import React, { useState, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../../../../App.css'
 import { ItemCount } from '../../ItemCount/ItemCount';
 import { UserContext } from '../../../../context/UserContext';
-import axios from 'axios';
-import { config } from '../../../../config/config';
 import { getImgs, postCart } from '../../../../services/routes';
+import {AddedCart} from '../../../Alerts/AddedCart';
 
 export const ItemDetail = ({productDetail}) => {
 
@@ -23,7 +22,7 @@ export const ItemDetail = ({productDetail}) => {
         const itemToAdd = { _id, quantity }
         postCart(user._id, itemToAdd)
           .then(function (response) {
-            if(response.data._id) navigate('/products')
+            if(response.data._id) AddedCart()
           })
           .catch(function (error) {
             console.log(error);

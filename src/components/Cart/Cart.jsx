@@ -28,8 +28,8 @@ export const Cart = () => {
       getCart(user._id)
         .then((res) => SetCart(res.data))
         .catch(err => console.log(err))
-        return ()=> setReloadData(true)
-    }, [reloadData])
+        return () => setReloadData(true)
+    }, [cart])
     
 
     const deleteItem = (itemID) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm'
 import { Form, Button, Container } from 'react-bootstrap'
-import SignUpError from '../error/SignUpError'
+import SignUpError from '../Alerts/error/SignUpError'
 import { useState } from 'react'
 import { postSignUp } from '../../services/routes'
 import { viewSuccessAlert } from '../Alerts/Success'
