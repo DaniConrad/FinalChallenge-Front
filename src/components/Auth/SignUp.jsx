@@ -33,7 +33,7 @@ const SignUp = () => {
         postSignUp(newUser)
           .then(response => {
             if(response.data.userID) {
-                viewSuccessAlert()
+                viewSuccessAlert('Registrado')
                 navigate('/auth')
             }
           })

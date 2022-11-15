@@ -3,7 +3,7 @@ import { Form, Button, Container } from 'react-bootstrap'
 import { useForm } from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import Error from '../error/LoginError';
+import Error from '../Alerts/error/LoginError';
 
  const Login = () => {
 

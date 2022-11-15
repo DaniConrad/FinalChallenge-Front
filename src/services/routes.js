@@ -62,6 +62,10 @@ const deleteProduct = async (userID, prodID) => {
     return await axios.delete(`${config.API_URL}/api/products/${userID}/${prodID}`,  )
 }
 
+const editProduct = async (userID, prodID, updatedProduct) => {
+    return await axios.put(`${config.API_URL}/api/products/${userID}/${prodID}`, updatedProduct)
+}
+
 export {
     getOrdersByUserID,
     logout,
@@ -76,5 +80,6 @@ export {
     getProductDetail,
     getImgs,
     postCart,
-    deleteProduct
+    deleteProduct,
+    editProduct
 }

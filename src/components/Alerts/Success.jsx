@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-export const viewSuccessAlert = () =>{
+export const viewSuccessAlert = (message) =>{
 
         const Toast = Swal.mixin({
             toast: true,
@@ -16,7 +16,7 @@ export const viewSuccessAlert = () =>{
           
           Toast.fire({
             icon: 'success',
-            title: 'Registrado exitosamente.'
+            title: `${message} exitosamente.`
           })
 
     };

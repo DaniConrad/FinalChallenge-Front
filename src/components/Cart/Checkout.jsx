@@ -14,8 +14,6 @@ export const Checkout = () => {
     postCheckout(user._id)
         .then(res => { 
             setOrderID(res.data._id) 
-            console.log("🚀 ~ file: Checkout.jsx ~ line 13 ~ Checkout ~ orderID", orderID)
-
             return
         })
         .catch(err => console.log(err)) 
