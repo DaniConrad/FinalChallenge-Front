@@ -15,6 +15,8 @@ import Chat from './components/Chat/Chat';
 import Admin from './components/Admin/Admin';
 import Modify from './components/Admin/Modify/AdminListContainerProducts';
 import { ProtectedRoute } from './components/Admin/ProtectedRoutes/protectedRoute';
+import OrdersDetailContainer from './components/Orders/OrdersDetail/OrdersDetailContainer/OrdersDetailContainer';
+
 
 function App() {
 
@@ -35,6 +37,9 @@ function App() {
             <Route path='/orders' element={<OrdersContainer />} />
             <Route path='/chat' element={<Chat />} />
             <Route path='/auth' element={<Login />} />
+            <Route path='/order/:orderID' element={ <OrdersDetailContainer /> } />
+
+
             <Route path='/admin' 
                   element={
                     <ProtectedRoute>

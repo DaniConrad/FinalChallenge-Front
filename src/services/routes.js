@@ -66,6 +66,10 @@ const editProduct = async (userID, prodID, updatedProduct) => {
     return await axios.put(`${config.API_URL}/api/products/${userID}/${prodID}`, updatedProduct)
 }
 
+const getOrdersByID = async (orderID) => {
+    return await axios.get(`${config.API_URL}/api/orders/${orderID}/order`)
+}
+
 export {
     getOrdersByUserID,
     logout,
@@ -81,5 +85,6 @@ export {
     getImgs,
     postCart,
     deleteProduct,
-    editProduct
+    editProduct,
+    getOrdersByID
 }
