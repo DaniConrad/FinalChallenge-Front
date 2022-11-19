@@ -7,22 +7,22 @@ const Chat = () => {
 
   const { user } = useContext(UserContext)
 
-  const [mensaje, setMensaje] = useState("");
-  const [mensajes, setMensajes] = useState([]);
+  const [message, setmessage] = useState("");
+  const [messages, setmessages] = useState([]);
 
   useEffect(() => {
-    socket.emit("conectado", user);
+    socket.emit("connection", user);
   }, [user]);
 
   useEffect(() => {
-    socket.on("mensajes", (mensaje) => {
-      setMensajes([...mensajes, mensaje]);
+    socket.on("messages", (message) => {
+      setmessages([...messages, message]);
     });
 
     return () => {
       socket.off();
     };
-  }, [mensajes]);
+  }, [messages]);
 
   const divRef = useRef(null);
   useEffect(() => {
@@ -31,30 +31,30 @@ const Chat = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    socket.emit("mensaje", user, mensaje);
-    setMensaje("");
+    socket.emit("message", user, message);
+    setmessage("");
   };
 
   return (
     <div>
       <div className="chat">
-        {mensajes.map((e, i) => (
+        {messages.map((e, i) => (
           <div key={i}>
             <div>{e.user}</div>
-            <div>{e.mensaje}</div>
+            <div>{e.message}</div>
           </div>
         ))}
         <div ref={divRef}></div>
       </div>
       <form onSubmit={submit}>
-        <label htmlFor="">Escriba su mensaje</label>
+        <label htmlFor="">Escriba su message</label>
         <textarea
           name=""
           id=""
           cols="30"
           rows="10"
-          value={mensaje}
-          onChange={(e) => setMensaje(e.target.value)}
+          value={message}
+          onChange={(e) => setmessage(e.target.value)}
         ></textarea>
         <button>Enviar</button>
       </form>
