@@ -28,9 +28,6 @@ const ProfileOptions = () => {
                         <Nav.Link as={Link} to="/orders" className='fs-4 underline text-light'>Orders</Nav.Link>
                       </NavDropdown.Item>
                       <NavDropdown.Item href="#action/3.3">
-                      <Nav.Link as={Link} to="/chat" className='fs-4 underline text-light'>Chat</Nav.Link>
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
                         <Nav.Link as={Link} to="/cart" className='fs-4 underline text-light'>Carrito</Nav.Link>
                       </NavDropdown.Item>
                       {

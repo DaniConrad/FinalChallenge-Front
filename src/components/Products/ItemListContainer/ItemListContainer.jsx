@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import {Container, Spinner} from 'react-bootstrap'
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { getProducts } from "../../../services/routes";
 
 

@@ -17,17 +17,13 @@ const Chat = () => {
   useEffect(() => {
     socket.on("messages", (message) => {
       setmessages([...messages, message]);
-    });
+      console.log(messages);
+    }, [messages]);
 
     return () => {
       socket.off();
     };
   }, [messages]);
-
-  const divRef = useRef(null);
-  useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: "smooth" });
-  });
 
   const submit = (e) => {
     e.preventDefault();
@@ -44,7 +40,6 @@ const Chat = () => {
             <div>{e.message}</div>
           </div>
         ))}
-        <div ref={divRef}></div>
       </div>
       <form onSubmit={submit}>
         <label htmlFor="">Escriba su message</label>

@@ -11,7 +11,6 @@ import { Uploads } from './components/Admin/Uploads/Uploads';
 import SignUp from './components/Auth/SignUp';
 import Profile from './components/Auth/Profile';
 import OrdersContainer from './components/Orders/OrdersContainer/OrdersContainer';
-import Chat from './components/Chat/Chat';
 import Admin from './components/Admin/Admin';
 import Modify from './components/Admin/Modify/AdminListContainerProducts';
 import { ProtectedRoute } from './components/Admin/ProtectedRoutes/protectedRoute';
@@ -35,7 +34,6 @@ function App() {
             <Route path='/signUp' element={<SignUp />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/orders' element={<OrdersContainer />} />
-            {/* <Route path='/chat' element={<Chat />} /> */}
             <Route path='/auth' element={<Login />} />
             <Route path='/order/:orderID' element={ <OrdersDetailContainer /> } />
 
